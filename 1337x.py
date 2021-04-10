@@ -19,7 +19,7 @@ async def start(_, message):
 
 @app.on_message(filters.command(['help']))
 async def help(_, message):
-    await message.reply_text("*Example:* /find titanic")
+    await message.reply_text("*Example:* /find titanic /n/nMade by NET.HACKER BOTs 🇱🇰")
 
 m = None
 i = 0
