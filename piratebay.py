@@ -13,13 +13,13 @@ print("\nBot Started\n")
 
 @app.on_message(filters.command(['start']))
 async def start(_, message):
-    await message.reply_text("Hello I'm PirateBay Torrent Scraper Bot\nSend /help To Show Help Screen\nBot by @unkusr")
+    await message.reply_text("*Hello I'm Torrent searcher Bot 🇱🇰*\nSend /help *To Show Example*\n*Bot by* @Network_hacker_bots 🇱🇰")
 
 
 
 @app.on_message(filters.command(['help']))
 async def help(_, message):
-    await message.reply_text("Example: /find titanic")
+    await message.reply_text("*Example:* /find titanic /n/nMade by NET.HACKER BOTs 🇱🇰")
 
 m = None
 i = 0
@@ -41,34 +41,48 @@ async def find(_, message):
         await message.reply_text("Usage: /find query")
         return
     query = message.text.split(None, 1)[1].replace(" ", "%20")
-    m = await message.reply_text("Searching")
+    m = await message.reply_text("*Searching 🤫*/n*Please wait 🌀*")
     try:
         async with aiohttp.ClientSession() as session:
-            async with session.get(f"https://api.api-zero.workers.dev/piratebay/{query}") \
+            async with session.get(f"https://api.api-zero.workers.dev/1337x/{query}") \
                     as resp:
                 a = json.loads(await resp.text())
     except:
-        await m.edit("Found Nothing.")
+        await m.edit("Found Nothing.🤒")
         return
     result = (
         f"**Page - {i+1}**\n\n"
-        f"➲Name: {a[i]['Name']}\n"
-        f"➲{a[i]['Uploader']} on "
-        f"{a[i]['Date']}\n" 
-        f"➲Size: {a[i]['Size']}\n"
-        f"➲Leechers: {a[i]['Leechers']} || "
-        f"➲Seeders: {a[i]['Seeders']}\n"
-        f"➲Type: {a[i]['Category']}\n"
-        f"➲Magnet: `{a[i]['Magnet']}`\n\n\n"
+        f"📌Name: `{a[i]['Name']}`\n"
+
+        f"📌{a[i]['UploadedBy']} on "
+
+        f"{a[i]['DateUploaded']}\n" 
+
+        f"📌{a[i]['Type']} "
+
+        f"{a[i]['Category']}\n"
+
+        f"📌Poster: {a[i]['Poster']}\n"
+
+        f"📌Language: {a[i]['Language']} || "
+
+        f"📌Checked: {a[i]['LastChecked']}\n"
+
+        f"📌Seeds: {a[i]['Seeders']} & "
+
+        f"📌Leeches: {a[i]['Leechers']}\n"
+
+
+        f"📌Magnet: `{a[i]['Magnet']}`\n\n\n"
     )
     await m.edit(
         result,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(f"Next {emoji.RIGHT_ARROW}",
+                    InlineKeyboardButton(f"Next",
                                          callback_data="next"),
-                    InlineKeyboardButton(f"{emoji.CROSS_MARK} DELETE {emoji.CROSS_MARK}",
+                    InlineKeyboardButton(f"{emoji.CROSS_MARK}",
                                          callback_data="delete")
                 ]
             ]
@@ -86,25 +100,39 @@ async def callback_query_next(_, message):
     i += 1
     result = (
         f"**Page - {i+1}**\n\n"
-        f"➲Name: {a[i]['Name']}\n"
-        f"➲{a[i]['Uploader']} on "
-        f"{a[i]['Date']}\n" 
-        f"➲Size: {a[i]['Size']}\n"
-        f"➲Leechers: {a[i]['Leechers']} || "
-        f"➲Seeders: {a[i]['Seeders']}\n"
-        f"➲Type: {a[i]['Category']}\n"
-        f"➲Magnet: `{a[i]['Magnet']}`\n\n\n"
+        f"📌Name: `{a[i]['Name']}`\n"
+
+        f"📌{a[i]['UploadedBy']} on "
+
+        f"{a[i]['DateUploaded']}\n" 
+
+        f"📌{a[i]['Type']} "
+
+        f"{a[i]['Category']}\n"
+
+        f"📌Poster: {a[i]['Poster']}\n"
+
+        f"📌Language: {a[i]['Language']} || "
+
+        f"📌Checked: {a[i]['LastChecked']}\n"
+
+        f"📌Seeds: {a[i]['Seeders']} & "
+
+        f"📌Leeches: {a[i]['Leechers']}\n"
+
+
+        f"📌Magnet: `{a[i]['Magnet']}`\n\n\n"
     )
     await m.edit(
         result,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(f"{emoji.LEFT_ARROW} Prev",
+                    InlineKeyboardButton(f"Prev",
                                          callback_data="previous"),
-                    InlineKeyboardButton(f"{emoji.CROSS_MARK} DELETE {emoji.CROSS_MARK}",
+                    InlineKeyboardButton(f"{emoji.CROSS_MARK}",
                                          callback_data="delete"),
-                    InlineKeyboardButton(f"Next {emoji.RIGHT_ARROW}",
+                    InlineKeyboardButton(f"Next",
                                          callback_data="next")
                     
                 ]
@@ -123,25 +151,39 @@ async def callback_query_previous(_, message):
     i -= 1
     result = (
         f"**Page - {i+1}**\n\n"
-        f"➲Name: {a[i]['Name']}\n"
-        f"➲{a[i]['Uploader']} on "
-        f"{a[i]['Date']}\n" 
-        f"➲Size: {a[i]['Size']}\n"
-        f"➲Leechers: {a[i]['Leechers']} || "
-        f"➲Seeders: {a[i]['Seeders']}\n"
-        f"➲Type: {a[i]['Category']}\n"
-        f"➲Magnet: `{a[i]['Magnet']}`\n\n\n"
+        f"📌Name: `{a[i]['Name']}`\n"
+
+        f"📌{a[i]['UploadedBy']} on "
+
+        f"{a[i]['DateUploaded']}\n" 
+
+        f"📌{a[i]['Type']} "
+
+        f"{a[i]['Category']}\n"
+
+        f"📌Poster: {a[i]['Poster']}\n"
+
+        f"📌Language: {a[i]['Language']} || "
+
+        f"📌Checked: {a[i]['LastChecked']}\n"
+
+        f"📌Seeds: {a[i]['Seeders']} & "
+
+        f"📌Leeches: {a[i]['Leechers']}\n"
+
+
+        f"📌Magnet: `{a[i]['Magnet']}`\n\n\n"
     )
     await m.edit(
         result,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(f"{emoji.LEFT_ARROW} Prev",
+                    InlineKeyboardButton(f"Prev",
                                          callback_data="previous"),
-                    InlineKeyboardButton(f"{emoji.CROSS_MARK} DELETE {emoji.CROSS_MARK}",
+                    InlineKeyboardButton(f"{emoji.CROSS_MARK}",
                                          callback_data="delete"),
-                    InlineKeyboardButton(f"Next {emoji.RIGHT_ARROW}",
+                    InlineKeyboardButton(f"Next",
                                          callback_data="next")
                 ]
             ]
