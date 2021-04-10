@@ -13,13 +13,13 @@ print("\nBot Started\n")
 
 @app.on_message(filters.command(['start']))
 async def start(_, message):
-    await message.reply_text("*Hello I'm Torrent searcher Bot 🇱🇰*\nSend /help *To Show Example*\n*Bot by* @Network_hacker_bots 🇱🇰")
+    await message.reply_text("Hello I'm Torrent searcher Bot 🇱🇰\nSend /help To Show Example \nBot by @Network_hacker_bots 🇱🇰")
 
 
 
 @app.on_message(filters.command(['help']))
 async def help(_, message):
-    await message.reply_text("*Example:* /find titanic /n/nMade by NET.HACKER BOTs 🇱🇰")
+    await message.reply_text("Example: /find titanic \n\nMade by NET.HACKER BOTs 🇱🇰")
 
 m = None
 i = 0
@@ -41,7 +41,7 @@ async def find(_, message):
         await message.reply_text("Usage: /find query")
         return
     query = message.text.split(None, 1)[1].replace(" ", "%20")
-    m = await message.reply_text("*Searching 🤫*/n*Please wait 🌀*")
+    m = await message.reply_text("Searching 🤫\nPlease wait 🌀")
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get(f"https://api.api-zero.workers.dev/1337x/{query}") \
